@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 GedMarc
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.jwebmp.plugins.c3.options.data;
 
 import java.util.ArrayList;
@@ -29,8 +13,19 @@ import java.util.Objects;
  */
 public class C3RowData<D>
 		extends ArrayList<D>
-		implements Comparable<C3RowData>, Comparator<C3RowData>
+		implements Comparable<C3RowData>
 {
+
+	public static final Comparator<C3RowData> COMPARATOR = (o1, o2) -> {
+		if (o1 != null && o2 != null)
+		{
+			if (o1.getType() == C3RowDataType.Header)
+			{
+				return -1;
+			}
+		}
+		return 0;
+	};
 
 
 	private C3RowDataType type;
@@ -51,25 +46,6 @@ public class C3RowData<D>
 		{
 			return 0;
 		}
-	}
-
-	@Override
-	public int compare(C3RowData o1, C3RowData o2)
-	{
-		if (o1 != null && o2 != null)
-		{
-			if (o1.getType() == C3RowDataType.Header)
-			{
-				return -1;
-			}
-			else
-			{
-				return 0;
-			}
-
-		}
-
-		return 0;
 	}
 
 	/**
