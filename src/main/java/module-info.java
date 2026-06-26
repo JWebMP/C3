@@ -14,8 +14,8 @@ module com.jwebmp.plugins.c3 {
 	provides com.guicedee.client.services.config.IGuiceScanModuleExclusions with com.jwebmp.plugins.c3.implementations.C3ExclusionsModule;
 	provides com.guicedee.client.services.config.IGuiceScanModuleInclusions with C3InclusionsModule;
 
-	opens com.jwebmp.plugins.c3 to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core;
-	opens com.jwebmp.plugins.c3.options to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.c3.options.data to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.c3.series to com.fasterxml.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.c3 to tools.jackson.databind, com.google.guice, com.jwebmp.core;
+	opens com.jwebmp.plugins.c3.options to tools.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.c3.options.data to tools.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.c3.series to tools.jackson.databind, com.jwebmp.core;
 }
